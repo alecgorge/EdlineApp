@@ -12,3 +12,46 @@
 	#import <UIKit/UIKit.h>
 	#import <Foundation/Foundation.h>
 #endif
+
+#import <SystemConfiguration/SystemConfiguration.h>
+#import <MobileCoreServices/MobileCoreServices.h>
+
+#import "EdlineAPIClient.h"
+#import "EdlineUser.h"
+#import "EdlineXPath.h"
+#import "EdlineAPI2.h"
+
+#import "SVPullToRefresh.h"
+
+#import <ObjectiveSugar/ObjectiveSugar.h>
+#import <Crashlytics/Crashlytics.h>
+
+#import <Flurry.h>
+
+#define alert(title, msg) { UIAlertView *a = [[UIAlertView alloc] initWithTitle:title message:msg delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil]; [a show]; }
+#define REQUEST_FAILED() ^(AFHTTPRequestOperation *op, NSError *err) { alert(@"Error", [err localizedDescription]); }
+
+#ifdef UI_USER_INTERFACE_IDIOM//()
+#define IS_IPAD() (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+#else
+#define IS_IPAD() (false)
+#endif
+
+#ifdef DEBUG
+#define CLS_LOG(__FORMAT__, ...) CLSNSLog((@"%s line %d $ " __FORMAT__), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__)
+#else
+#define CLS_LOG(__FORMAT__, ...) CLSLog((@"%s line %d $ " __FORMAT__), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__)
+#endif
+
+#define EDLINE_GREEN [UIColor colorWithRed:26.0/255.0\
+									 green:96.0/255.0\
+									  blue:71.0/255.0\
+									 alpha:1.0]
+
+#define SYSTEM_VERSION_EQUAL_TO(v)                  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedSame)
+#define SYSTEM_VERSION_GREATER_THAN(v)              ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedDescending)
+#define SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
+#define SYSTEM_VERSION_LESS_THAN(v)                 ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedAscending)
+#define SYSTEM_VERSION_LESS_THAN_OR_EQUAL_TO(v)     ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedDescending)
+
+#define ENABLE_NOTIFICATIONS AppDelegate.sharedDelegate.notificationsEnabled

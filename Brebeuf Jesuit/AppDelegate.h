@@ -7,9 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "EdlineHomeViewController.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
++ (AppDelegate*)sharedDelegate;
+
 @property (strong, nonatomic) UIWindow *window;
+@property (nonatomic) EdlineHomeViewController *home;
+@property (nonatomic) BOOL notificationsEnabled;
 
 @end
