@@ -21,11 +21,10 @@
 #import "EdlineXPath.h"
 #import "EdlineAPI2.h"
 
-#import "SVPullToRefresh.h"
-
 #import <ObjectiveSugar/ObjectiveSugar.h>
 #import <Crashlytics/Crashlytics.h>
 
+#import <AFNetworking/AFNetworking.h>
 #import <Flurry.h>
 
 #define alert(title, msg) { UIAlertView *a = [[UIAlertView alloc] initWithTitle:title message:msg delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil]; [a show]; }

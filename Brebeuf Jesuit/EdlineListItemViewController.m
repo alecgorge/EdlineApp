@@ -9,6 +9,13 @@
 #import "EdlineListItemViewController.h"
 #import "EdlineListDataSourceDelegate.h"
 #import "EdlineTabbedViewController.h"
+#import "EdlineDocList.h"
+#import "EdlineEventList.h"
+#import "EdlineIframe.h"
+#import "EdlineActivityList.h"
+
+#import <FXKeychain/FXKeychain.h>
+#import <SVWebViewController/SVWebViewController.h>
 
 @interface EdlineListItemViewController ()
 
@@ -45,7 +52,10 @@
 									 [super refresh:sender];
 
 									 if([displayable isKindOfClass:[EdlineList class]]
-									 || displayable == nil) {
+                                     || [displayable isKindOfClass:EdlineDocList.class]
+                                     || [displayable isKindOfClass:EdlineActivityList.class]
+                                     || [displayable isKindOfClass:EdlineEventList.class]
+                                     || displayable == nil) {
 										 self.eldsd.list = displayable;
 										 self.eldsd.list.previousItem = self.item;
 										 
@@ -56,6 +66,7 @@
 										 self.tableView.dataSource = self.eldsd;
 										 
 										 [self.tableView reloadData];
+
 									 }
 									 else if([displayable isKindOfClass:[EdlineTabbedPage class]]) {
 										 EdlineTabbedViewController *vc = [[EdlineTabbedViewController alloc] initWithTabPage:displayable];
@@ -63,12 +74,12 @@
 										 [self.navigationController pushViewController:vc
 																			  animated:YES];
 									 }
-									 
-									 [Flurry logError:@"ListItemViewController"
-											  message:[NSString stringWithFormat:@"Couldn't display: %@", displayable]
-												error:[NSError errorWithDomain:@"com.alecgorge.ios.edline"
-																		  code:6548
-																	  userInfo:@{@"displayable": displayable?displayable:@"nil"}]];
+                                     else if([displayable isKindOfClass:[EdlineIframe class]]) {
+                                         SVWebViewController *vc = [[SVWebViewController alloc] initWithURL:[displayable url]];
+                                         vc.navigationItem.title = self.item.text;
+                                         [self.navigationController pushViewController:vc
+                                                                              animated:YES];
+                                     }
 								 }
 								 failure:REQUEST_FAILED()];
 }

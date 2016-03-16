@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>A4889E06-9FA2-4529-BEE5-34715F31E505</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Brebeuf Jesuit</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>41CB61513B3DEF6DCB182D7C3B953E115D580651</key>
+		<string>github.com:alecgorge/EdlineApp.git</string>
+		<key>953FBAFC-B882-4DBE-A760-8EBA1520B6CF</key>
+		<string>ssh://github.com/alecgorge/EdlineApp.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Brebeuf Jesuit.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>41CB61513B3DEF6DCB182D7C3B953E115D580651</key>
+		<string>..</string>
+		<key>953FBAFC-B882-4DBE-A760-8EBA1520B6CF</key>
+		<string>../../Brebeuf Jesuit</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>github.com:alecgorge/EdlineApp.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>41CB61513B3DEF6DCB182D7C3B953E115D580651</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>953FBAFC-B882-4DBE-A760-8EBA1520B6CF</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Brebeuf Jesuit</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>41CB61513B3DEF6DCB182D7C3B953E115D580651</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Brebeuf%20Jesuit</string>
+		</dict>
+	</array>
+</dict>
+</plist>

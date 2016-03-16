@@ -39,6 +39,8 @@ typedef void (^FailureBlock)(AFHTTPRequestOperation *, NSError *);
 			 success:(void (^)(id displayable))cb
 			 failure:(FailureBlock)failure;
 
+@property (nonatomic, readonly) NSString *uuid;
+
 @property (nonatomic, readonly) EdlineListItem *activityFeedItem;
 @property (nonatomic, readonly) EdlineListItem *privateReportsItem;
 

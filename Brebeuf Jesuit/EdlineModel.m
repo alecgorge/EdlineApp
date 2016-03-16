@@ -7,6 +7,9 @@
 //
 
 #import "EdlineModel.h"
+#import "EdlineAPI2.h"
+
+#import <NSData+Base64/NSData+Base64.h>
 
 @implementation EdlineModel
 
@@ -35,6 +38,10 @@
 	}
 	
 	return _document;
+}
+
+- (NSString *)description {
+    return [NSString stringWithFormat:@"<---------------------\nHTTP Request: %@ %@\n======================\nHTTP Response: %@\n======================\nHTTP Body: %@\n--------------------->", self.operation.request, self.operation.request.allHTTPHeaderFields, self.operation.response, [[[NSString stringWithFormat:@"%@\n%@", EdlineAPI2.sharedAPI.uuid, self.response] dataUsingEncoding:NSUTF8StringEncoding]  base64Encoding]];
 }
 
 @end

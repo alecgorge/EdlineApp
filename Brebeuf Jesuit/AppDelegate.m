@@ -42,7 +42,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 	
 	inst = self;
 	
-	[FXKeychain defaultKeychain].accessibility = FXKeychainAccessibleAfterFirstUnlock;
+	[FXKeychain defaultKeychain].accessibility = FXKeychainAccessibleAlways;
 	
 	[EdlineAPI2 sharedAPI].requiresCompleteLogin = YES;
 	
@@ -85,7 +85,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 			
 			fetcher.sendNotifications = NO;
 			[fetcher performFetchWithCompletionHandler:^(UIBackgroundFetchResult res) {
-				CLS_LOG(@"background fetch cache preload result: %d", res);
+				CLS_LOG(@"background fetch cache preload result: %lu", res);
 			}];
 		}
 	}

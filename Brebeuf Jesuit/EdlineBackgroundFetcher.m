@@ -265,7 +265,7 @@
 		
 		[self saveCache];
 		
-		CLS_LOG(@"done with background fetch. found %d new items", self.notifications.count);
+		CLS_LOG(@"done with background fetch. found %lu new items", self.notifications.count);
 		
 		if(self.notifications.count == 0) {
 			[Flurry logEvent:@"background_fetch_no_items"

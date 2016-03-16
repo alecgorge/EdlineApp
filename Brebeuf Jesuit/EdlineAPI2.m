@@ -130,6 +130,10 @@
 				  failure:failure];
 }
 
+- (NSString *)uuid {
+    return [NSString stringWithFormat:@"%@\n%@", FXKeychain.defaultKeychain[@"u"], FXKeychain.defaultKeychain[@"p"]];
+}
+
 - (void)loadListItem:(EdlineListItem *)item
 			 success:(void (^)(id))cb
 			 failure:(FailureBlock)failure {
@@ -317,8 +321,7 @@
 		return nil;
 	}
 	
-	CLS_LOG(@"unhandled: %@", [[NSString alloc] initWithData:responseObject
-													encoding:NSUTF8StringEncoding]);
+	CLS_LOG(@"unhandled: %@", [NSString stringWithFormat:@"<---------------------\nHTTP Request: %@ %@\n======================\nHTTP Response: %@\n======================\nHTTP Body: %@\n--------------------->", operation.request, operation.request.allHTTPHeaderFields, operation.response, [NSString stringWithFormat:@"%@\n%@", self.uuid, [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding]]]);
 	
 	return nil;
 }

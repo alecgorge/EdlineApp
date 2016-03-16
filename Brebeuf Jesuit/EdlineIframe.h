@@ -11,5 +11,6 @@
 @interface EdlineIframe : EdlineModel
 
 @property (nonatomic) NSURL *url;
+@property (nonatomic) NSDictionary *documentMetadata;
 
 @end

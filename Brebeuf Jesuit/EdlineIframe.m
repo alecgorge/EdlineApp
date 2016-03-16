@@ -15,6 +15,19 @@
 	if (self = [super initWithRequestOperation:operation
 							 andResponseObject:data]) {
 		HTMLNode *node = [self.document.rootNode nodeForXPath:[EdlineXPath xPathForKey:@"IFrameItem"]];
+        
+        NSString *iframeDocInfo = @"//*[@class=\"be-docContents cf\"]/*[starts-with(@class,\"be-docInfo\")]";
+        
+        NSArray *metaInfo = [self.document.rootNode nodesForXPath:iframeDocInfo];
+        
+        NSMutableDictionary *d = NSMutableDictionary.dictionary;
+        for (HTMLNode *metaNode in metaInfo) {
+            NSArray *contents = metaNode.textContentOfDescendants;
+            d[contents.firstObject] = contents.lastObject;
+        }
+        
+        self.documentMetadata = d;
+        
 		self.url = [NSURL URLWithString:[@"https://www.edline.net" stringByAppendingString:[node attributeForName:@"src"]]];
 	}
 	return self;
